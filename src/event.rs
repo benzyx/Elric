@@ -1,31 +1,32 @@
-use chrono::{DateTime, Local};
-
-pub type OrderId = i64;
-pub type Price = i64;
-pub type Qty = i64;
-pub type Timestamp = DateTime<Local>;
+use crate::types::*;
 
 #[allow(dead_code)]
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, PartialEq)]
 pub enum Side {
     Buy,
-    Sell
+    Sell,
 }
 
-fn other_side(side: Side) -> Side {
-	match side {
-		Side::Buy => Side::Sell,
-		Side::Sell => Side::Buy
-	}
+#[allow(dead_code)]
+impl Side {
+    fn other(self) -> Side {
+        match self {
+            Side::Buy => Side::Sell,
+            Side::Sell => Side::Buy,
+        }
+    }
+}
+
+#[derive(Clone, Debug)]
+pub struct ExecutedEvent {
+    pub bid_id: OrderId,
+    pub ask_id: OrderId,
+    pub price: Price,
+    pub qty: Qty,
+    pub time: Timestamp,
 }
 
 #[derive(Clone, Debug)]
 pub enum Event {
-	Executed{
-		bid_id: OrderId,
-		ask_id: OrderId,
-		price: Price,
-		qty: Qty,
-		time: Timestamp},
+    Executed(ExecutedEvent),
 }
-
