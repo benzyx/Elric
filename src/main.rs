@@ -14,7 +14,7 @@ fn main() {
     let matches = App::new("Elric")
         .version("1.0")
         .author("Ben Zhang <frenzybenzy@gmail.com>")
-        .about("Rust trading platform")
+        .about("Rust trading platform.")
         .arg(
             Arg::with_name("SYMBOLS")
                 .short("s")
