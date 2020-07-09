@@ -8,5 +8,13 @@ edition = "2018"
 
 [dependencies]
 chrono = { version = "0.4", features = ["serde"] }
-clap = "*"
-tokio = { version = "0.2", features = ["full"] }
+tokio = { version = "*", features = ["sync", "fs", "rt-threaded", "macros", "tcp", "time", "dns", "blocking"] }
+tokio-util = { version = "*", features = ["codec"] }
+rustls = "*"
+tokio-rustls = "*"
+serde = { version = "*", features = ["rc", "derive"] }
+serde_json = "*"
+bincode = "*"
+structopt = "*"
+futures = "*"
+log = "*"

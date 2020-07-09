@@ -1,22 +1,5 @@
 use crate::types::*;
 
-#[allow(dead_code)]
-#[derive(Clone, Debug, PartialEq)]
-pub enum Side {
-    Buy,
-    Sell,
-}
-
-#[allow(dead_code)]
-impl Side {
-    fn other(self) -> Side {
-        match self {
-            Side::Buy => Side::Sell,
-            Side::Sell => Side::Buy,
-        }
-    }
-}
-
 #[derive(Clone, Debug)]
 pub struct ExecutedEvent {
     pub bid_id: OrderId,

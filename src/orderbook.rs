@@ -8,11 +8,11 @@ use std::collections::BTreeMap;
 #[allow(dead_code)]
 #[derive(Clone, PartialEq)]
 pub struct Order {
-    side: Side,
-    price: Price,
-    qty: Qty,
-    order_id: OrderId,
-    time: Timestamp,
+    pub side: Side,
+    pub price: Price,
+    pub qty: Qty,
+    pub order_id: OrderId,
+    pub time: Timestamp,
 }
 
 type OrderMap = BTreeMap<Price, BTreeMap<Timestamp, OrderId>>;
